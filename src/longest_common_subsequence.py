@@ -2,7 +2,7 @@ def lcs_length(x, y):
     m = len(x)
     n = len(y)
 
-    c = [[0]*(n + 1) for i in range(m + 1)]
+    c = [[0] * (n + 1) for i in range(m + 1)]
     for i in range(m):
         c[i][0] = 0
     for j in range(n):
@@ -23,7 +23,7 @@ def lcs_length(x, y):
 def memoized_lcs(x, y):
     m = len(x)
     n = len(y)
-    c = [[0]*(n + 1) for i in range(m + 1)]
+    c = [[0] * (n + 1) for i in range(m + 1)]
     for i in range(m + 1):
         for j in range(n + 1):
             c[i][j] = -1
@@ -47,8 +47,6 @@ def memoized_lcs_aux(x, y, c, i, j):
 
     c[i][j] = cc
     return cc
-
-
 
 
 print(lcs_length("ABCBDAB", "BDCABA"))

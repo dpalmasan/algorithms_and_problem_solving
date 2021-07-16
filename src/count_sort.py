@@ -7,7 +7,11 @@ def count_sort(in_string):
     """
     count = Counter(in_string)
     out_string = ""
-    for letter, count in sorted(count.most_common(), key=lambda x: x[1] - 0.001 * ord(x[0]), reverse=True):
+    for letter, count in sorted(
+        count.most_common(),
+        key=lambda x: x[1] - 0.001 * ord(x[0]),
+        reverse=True,
+    ):
         out_string += letter
 
     return out_string
@@ -22,7 +26,7 @@ def count_sort_opt(in_string):
 
 
 def general_test(in_string, expected_output, count_sort=count_sort):
-    assert(count_sort(in_string) == expected_output)
+    assert count_sort(in_string) == expected_output
 
 
 if __name__ == "__main__":

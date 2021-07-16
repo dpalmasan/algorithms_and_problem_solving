@@ -1,3 +1,7 @@
+from typing import Dict
+from typing import List
+
+
 class SolutionBruteForce:
     def subarraySum(self, nums: List[int], k: int) -> int:
         n = len(nums)
@@ -8,13 +12,13 @@ class SolutionBruteForce:
                 subsum += nums[j]
                 if subsum == k:
                     count += 1
-                    
+
         return count
 
 
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        sum_cache = {}
+        sum_cache: Dict[int, int] = {}
         count = 0
         cum_sum = 0
         for num in nums:
@@ -23,6 +27,6 @@ class Solution:
                 count += 1
 
             count += sum_cache.get(cum_sum - k, 0)
-            sum_cache[cum_sum] = sum_cache.get(cum_sum, 0)  + 1
-                    
+            sum_cache[cum_sum] = sum_cache.get(cum_sum, 0) + 1
+
         return count
